@@ -3,9 +3,9 @@
 whatever is the javascript equivalent of the input
 if input >= 20:
     go on with the code
+    make both rows and columns equal to the integer inputted by the user
+    after creating the rows and columns, take a random value of row and column
+    and make that random "coordinate" (row, col) be a user input field
+
 else:
     somehow dont break things but dont run the code
-
-456
-789
-good
