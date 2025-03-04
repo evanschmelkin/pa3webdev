@@ -1,12 +1,63 @@
+/*
+Sa'ada, Max, and Evan
+3/4/2025
+Web Development
+pa3.css
+This is the main CSS file for this project
+*/
 body {
     background-color: #fff1c8;
-}
-
-#parent {
+    margin: 0 auto;
     text-align:center;
+    width:100%;
 }
 
+.here_table {
+    align-self: center;
+}
+
+.mul_table{
+    margin:auto;
+    border:black solid 2px;
+    border-collapse: collapse;
+}
+
+.cell1{
+    border:black solid 2px;
+    background-color:yellow;
+
+
+}
+
+.cell2{
+    border:black solid 2px;
+    background-color:orange;
+
+}
+
+.cell3{
+    border:black solid 2px;
+    background-color:pink;
+
+}
 .multtableh1
 {
     font-weight: bold;
 }
+
+
+
+#pushbutton {
+    /*this is when the button is not being hovered over*/
+    background-color: #ffd93c;
+    border: 1px solid saddlebrown;
+    transition-duration: 0.4s;
+}
+
+#pushbutton:hover {
+    /*this is when the button is being hovered over*/
+    background-color: #9f7102;
+    border: 1px solid #47240b;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 15px 0 rgba(0,0,0,0.19);
+}
+

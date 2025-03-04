@@ -1,21 +1,35 @@
+/*
+Sa'ada, Max, and Evan
+3/4/2025
+Web Development
+pa3.js
+This is the main JavaScript file for this project
+*/
 $(document).ready(function(){
 
     var input = 15;
     var table = $('<table>').addClass('mul_table');
+    var counter = 1;
 
+    for (var i = 0; i <= input; i++) { //rows (i) starts a 0
 
-    for (var i = 0; i <= input; i++) {
-        var row = $('<tr>').addClass('bar');
-        row.append($('<td>').text(i));
+        var row = $('<tr>').addClass('cell1');
+        if (i===0) row.append($('<td>').text(""));
+        else row.append($('<td>').text(i)); //first number of each row
         if (i === 0) {
             //row.append($('<td>').text('hi'));
-            for (var j = 1; j <= input; j++) {
-                row.append($('<td>').text(j));
+            for (var j = 1; j <= input; j++) { //if in top row, list numbers list on left side
+
+                row.append($('<td class="cell1">').text(j));
             }
         }
         else {
-            for (var j = 1; j <= input; j++) {
-                row.append($('<td>').text(i*j));
+            for (var j = 1; j <= input; j++) { //do if non-top row
+                if (counter%2==1)
+                    row.append($('<td class="cell2">').text(i*j)); //these ones should have alternating cell color
+                else
+                    row.append($('<td class="cell3">').text(i*j));
+                counter += 1;
             }
         }
 
@@ -57,6 +71,7 @@ $(document).ready(function(){
             if(autoFlag)
                 timer = setTimeout(autoCount,1000);
         }
+        else $("p").html("Time up!");
 
 
 
