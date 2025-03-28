@@ -22,6 +22,9 @@ var userInput;
 
 $(document).ready(function () {
     $("#pushbutton").on("click", function () {
+        userInput = -1;
+        autoFlag = false;
+        clearTimeout(timer);
         var inputVal = $(".test").val();
         if (parseInt(inputVal) > 25 || parseInt(inputVal) <= 0){
             alert("Please enter a valid positive number less than 25");
@@ -54,21 +57,30 @@ $(document).ready(function () {
                         correctAnswer = i*j
                         // for a randomly selected cell count, adds an input field
                         var cell;
-                        
+
                         //the 'change', means when the input field content changes we run the function
-                        var inputVal = $('<input type="text">').on('change', function () {
+                        var inputVal = $('<input type="text">').on('keyup', function () {
                             userInput = $(this).val();
                             console.log("User entered:", userInput);
                         });
 
                         cell = $('<td class="cell_input">').append(inputVal);
                         row.append(cell);
-                    } else if (counter % 2 === 1) {
-                        row.append($('<td class="cell2">').text(i * j)); // these ones should have alternating cell color
+                    } else if (j % 2 != 1) {
+                        if (i % 2 === 1)
+                            row.append($('<td class="cell2">').text(i * j)); // these ones should have alternating cell color
+                        else{
+                            row.append($('<td class="cell3">').text(i * j));
+                        }
                     } else {
-                        row.append($('<td class="cell3">').text(i * j));
+                        if (i % 2 === 1)
+                            row.append($('<td class="cell3">').text(i * j)); // these ones should have alternating cell color
+                        else{
+                            row.append($('<td class="cell2">').text(i * j));
+                        }
                     }
-                    counter += 1;
+                        counter += 1;
+
                 }
             }
 
@@ -84,6 +96,7 @@ $(document).ready(function () {
     var timer;
 
     $("button").on("click", function () {
+        console.log("time start: " + $("input").val());
         counter = parseInt($("input").val()); // ensure numeric value
         if (nums.includes(counter)) { // check if counter is in nums array
             if (autoFlag) {
@@ -98,24 +111,28 @@ $(document).ready(function () {
 
     function autoCount() {
         if (counter > 0) {
-            console.log("test");
             counter = counter - 1;
             $("p").html("timer left: " + counter); // the timer text
-            console.log("test user input:", userInput);
+
             if (autoFlag) {
                 timer = setTimeout(autoCount, 1000);
+                console.log("waited 1 second", counter);
             }
         } else {
             $("p").html("Time up!");
             $("#here_table").empty();
             $("h1").empty();
-            if (parseInt(userInput) === correctAnswer){
+            if (parseInt(userInput) === correctAnswer) {
                 $("p").html("Your answer is correct!");
-                console.log("User final input:", userInput);}
-            else
-                $("p").html("Incorrect! The correct answer is: " + correctAnswer);
-            console.log("User final input:", userInput);
 
+                autoFlag = false;
+            }
+            else {
+                $("p").html("Incorrect! The correct answer is: " + correctAnswer);
+
+                autoFlag = false;
+
+            }
         }
     }
 

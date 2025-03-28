@@ -75,16 +75,3 @@ body {
     box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 15px 0 rgba(0,0,0,0.19);
 }
 
- #submitbutton {
-     /*this is when the button is not being hovered over*/
-     background-color: #ffd93c;
-     border: 1px solid saddlebrown;
-     transition-duration: 0.4s;
- }
-
- #submitbutton:hover {
-     /*this is when the button is being hovered over*/
-     background-color: #9f7102;
-     border: 1px solid #47240b;
-     box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 15px 0 rgba(0,0,0,0.19);
- }
