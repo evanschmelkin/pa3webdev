@@ -79,7 +79,13 @@ $(document).ready(function () {
                             row.append($('<td class="cell2">').text(i * j));
                         }
                     }
-                        counter += 1;
+                    
+                    counter += 1;
+
+
+
+
+
 
                 }
             }
