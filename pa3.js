@@ -7,17 +7,18 @@ pa3.js
 This is the main JavaScript file for this project
 */
 
+//var userInput;
+
+//$(document).keydown(function(keyPressed) {
+//    if (keyPressed.keyCode === 13) {
+//        if (userInput !== null) {
+//            console.log("test123: " + userInput);
+//        }
+
+//    }
+//});
+
 var userInput;
-
-$(document).keydown(function(keyPressed) {
-    if (keyPressed.keyCode === 13) {
-        if (userInput !== null) {
-            console.log("test123: " + userInput);
-        }
-
-    }
-});
-
 
 $(document).ready(function () {
     $("#pushbutton").on("click", function () {
@@ -53,8 +54,9 @@ $(document).ready(function () {
                         correctAnswer = i*j
                         // for a randomly selected cell count, adds an input field
                         var cell;
-                        //var userInput;
-                        var inputVal = $('<input type="text">').on('click', function () {
+                        
+                        //the 'change', means when the input field content changes we run the function
+                        var inputVal = $('<input type="text">').on('change', function () {
                             userInput = $(this).val();
                             console.log("User entered:", userInput);
                         });
@@ -112,7 +114,7 @@ $(document).ready(function () {
                 console.log("User final input:", userInput);}
             else
                 $("p").html("Incorrect! The correct answer is: " + correctAnswer);
-                console.log("User final input:", userInput);
+            console.log("User final input:", userInput);
 
         }
     }
