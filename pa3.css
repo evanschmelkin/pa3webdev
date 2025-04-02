@@ -5,44 +5,85 @@
     pa3.css
     This is the main CSS file for this project
     */
+
 body {
-    background-color: #fff1c8
-    margin: 0 auto;
+    background-color: #9ad1d4;
+    margin: 20px auto;
     text-align:center;
     width:100%;
 }
-
-.here_table {
+ img {
+     width: 500px;
+     height: 400px;
+ }
+.here_table { /* table is in the middle of the page*/
     align-self: center;
 }
 
-.mul_table{
+.mul_table{ /* styling of the table */
     margin:auto;
     border:black solid 2px;
     border-collapse: collapse;
 }
 
-.cell1{
+.cell1{ /* edges of the table  containing multiplication factors*/
     border:black solid 2px;
     background-color:yellow;
 
 
 }
 
-.cell2{
-    border:black solid 2px;
-    background-color:orange;
+
+
+ /* we found this from w3 schools animations*/
+  @keyframes two{
+     from {/* this from two combined with the @keyframes creates alternation between styles*/
+
+         border:black solid 2px;
+         background-color:orange;
+     }
+     to {
+         border:black solid 2px;
+         background-color:pink;
+     }
+
+ }
+
+ .cell2{/* half of the checkerboard pattern. specifies animation class */
+     animation-name: two;
+     animation-duration: 8s;
+     animation-direction: alternate;
+     animation-iteration-count: infinite;
+
+ }
+
+
+/* we found this from w3 schools animations*/
+ @keyframes three{ /* animation of cell 3*/
+    from { /* this from two combined with the @keyframes creates alternation between styles*/
+        border:black solid 2px;
+        background-color:pink;
+    }
+    to {
+        border:black solid 2px;
+        background-color:orange;
+    }
 
 }
 
-.cell3{
-    border:black solid 2px;
-    background-color:pink;
+ .cell3{ /* half of the checkerboard pattern. specifies animation class */
+     animation-name: three;
+     animation-duration: 8s;
+     animation-direction: alternate;
+     animation-iteration-count: infinite;
 
-}
-.multtableh1
+ }
+
+
+#multtableh1
 {
     font-weight: bold;
+    color: #20063b;
 }
 
 .mul_table td {
@@ -52,7 +93,7 @@ body {
     height: 30px;
 }
 
-.cell_input input {
+.cell_input input { /* for the question input-box cell in the table*/
     width: 100%;
     height: 100%;
     text-align: center;
@@ -66,6 +107,7 @@ body {
     background-color: #ffd93c;
     border: 1px solid saddlebrown;
     transition-duration: 0.4s;
+    margin-bottom: 20px;
 }
 
 #pushbutton:hover {
@@ -75,3 +117,20 @@ body {
     box-shadow: 0 4px 6px 0 rgba(0,0,0,0.24), 0 6px 15px 0 rgba(0,0,0,0.19);
 }
 
+.correct-answer {
+    color: #006400;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+
+
+}
+
+.incorrect-answer {
+    color: #c80000;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+
+
+}
